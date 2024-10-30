@@ -4,6 +4,7 @@
 package com.amazonaws.amplify.amplify_auth_cognito
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -570,7 +571,16 @@ open class AmplifyAuthCognitoPlugin :
         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         putExtra(CUSTOM_TAB_CANCEL_EXTRA, true)
       }
-      applicationContext!!.startActivity(cancelIntent)
+      try {
+        applicationContext!!.startActivity(cancelIntent)
+      } catch (e: Exception) {
+        Log.d(TAG, "Error while applicationContext!!.startActivity(cancelIntent) $e")
+        cancelIntent.component = ComponentName(
+          applicationContext!!.packageName,
+          applicationContext!!.packageName+".MatchB2BAlias"
+        )
+        applicationContext!!.startActivity(cancelIntent)
+      }
       return true
     }
     return false
