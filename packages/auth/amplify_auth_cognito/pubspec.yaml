@@ -30,7 +30,7 @@ dependencies:
   amplify_auth_cognito_dart:
     git:
       url: git@github.com:mykola-oliinyk/amplify-flutter.git
-      ref: d260682b02cbd1ff3fdce77ce238166f608cd815
+      ref: 71fe9201ee4ee95eb7a64f4a02311bc5c68b9c80
       path: packages/auth/amplify_auth_cognito_dart/
   amplify_core: ">=2.5.0 <2.6.0"
   amplify_flutter: ">=2.5.0 <2.6.0"
